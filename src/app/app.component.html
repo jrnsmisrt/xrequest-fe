@@ -1,79 +1,43 @@
 <ul class="list-group">
-  <li *ngFor="let request of xrequests|async" class="list-group-item">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          request id :
-        </div>
-        <div class="col">
-          {{request.id}}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          request author id :
-        </div>
-        <div class="col">
-          {{request.author}}
-        </div>
-      </div>
+    <li *ngFor="let request of xrequests|async" class="list-group-item">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {{request.category}}
+                </div>
+                <div class="col">
+                    {{request.id}}
+                </div>
+                <div class="col">
+                    {{request.tags}}
+                </div>
+            </div>
 
-      <div class="row">
-        <div class="col">
-          request datetime :
+            <div class="row">
+                <div class="col">
+                    {{request.author}}
+                </div>
 
-        </div>
-        <div class="col">
-          {{request.dateTime}}
-        </div>
-      </div>
+                <div class="col">
+                    {{request.title}}
+                </div>
 
-      <div class="row">
-        <div class="col">
-          request category :
+                <div class="col">
+                    {{request.dateTime}}
+                </div>
+            </div>
 
-        </div>
-        <div class="col">
-          {{request.category}}
-        </div>
-      </div>
+            <div class="row">
+                <div class="col">
+                    {{request.content}}
+                </div>
+            </div>
 
-      <div class="row">
-        <div class="col">
-          request tags :
+            <div class="row">
+                <div class="col">
+                    {{request?.photos}}<br>
+                </div>
+            </div>
         </div>
-        <div class="col">
-          {{request?.tags}}
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          request title :
-        </div>
-        <div class="col">
-          {{request.title}}
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          request content :
-        </div>
-        <div class="col">
-          {{request.content}}
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          request photos :
-
-        </div>
-        <div class="col">
-          {{request?.photos}}<br>
-        </div>
-      </div>
-    </div>
-  </li>
+    </li>
 </ul>
