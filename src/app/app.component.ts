@@ -13,6 +13,9 @@ export class AppComponent implements OnInit {
     title = 'XRequests ~ enjoy life - do good';
     xrequests: Observable<XRequest[]> = of([]);
     authors: Observable<Author[]> = of([]);
+    imgHeight = 200;
+    imgWidth = 100;
+    navStatus = false;
 
     constructor(private httpService: HttpService) {
     }
@@ -27,5 +30,9 @@ export class AppComponent implements OnInit {
             return requests;
         }));
         this.authors = this.httpService.getAllAuthors().pipe(take(1));
+    }
+
+    toggleNav() {
+        this.navStatus = !this.navStatus;
     }
 }

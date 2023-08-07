@@ -1,55 +1,64 @@
-<div class="container-fluid">
 
+<button class="sticky-top z-5 float-end  mr-5 btn-dark btn btn-sm" (click)="toggleNav()">nav</button>
 
-    <ul class="list-group">
-        <li *ngFor="let request of xrequests|async" class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-2 text-lowercase small">
-                        {{request.category}}
-                    </div>
-                    <div class="col fw-bold text-center">
-                        {{request.title}}
-                    </div>
-                    <div class="col-2 small">
-                        {{request.tags}}
-                    </div>
-                </div>
+<div class="container w-100 z-0">
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" [opened]="navStatus">
+            blablabla
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <ul class="list-group">
+                <li *ngFor="let request of xrequests|async" class="list-group-item pt-2 pb-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-12 text-lowercase small">
+                                {{request.category}}
+                            </div>
+                            <div class="col-lg-4 col-md-2 col-sm-12 fw-bold">
+                                {{request.title}}
+                            </div>
+                        </div>
 
-                <div class="row">
-                    <div class="col-2">
-                        {{request.authorData?.nickName}}
-                        {{request.authorData?.name}}
-                        {{request.authorData?.surName}}
-                    </div>
-                    <div class="col">
-                    </div>
-                    <div class="col-2">
-                        {{request.dateTime}}
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-12 text-break">
+                                <a [href]="request.authorData?.email"
+                                   class="link-info">{{request.authorData?.nickName}}</a>
+                            </div>
+                            <div class="col">
+                            </div>
+                            <div class="col-lg-4 col-md-2 col-sm-12 text-break small">
+                                {{request.dateTime | date:'dd-MM-yyyy @ HH:mm:ss'}}
+                            </div>
+                        </div>
 
-                <div class="row">
-                    <div class="col">
-                        {{request.content}}
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="col">
+                                {{request.content}}
+                            </div>
+                        </div>
 
-                <div class="row">
-                    <div class="col align-content-center">
-                        <div class="container">
-                            <div class="row">
-                                <div *ngFor="let photo of request.photos" class="col-4 text-center mx-auto">
-                                    <img [src]="photo" [alt]="'test'"/>
+                        <div class="row">
+                            <div class="col align-content-center">
+                                <div class="container">
+                                    <div class="row">
+                                        <div *ngFor="let photo of request.photos" class="col-4 text-center mx-auto">
+                                            <img [src]="photo" [alt]="'test'" [height]="imgHeight" [width]="imgWidth"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-2 col-sm-12 small text-break">
+                                [{{request.tags}}]
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </li>
-    </ul>
+                </li>
+            </ul>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 
 </div>
