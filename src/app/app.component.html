@@ -1,43 +1,55 @@
-<ul class="list-group">
-    <li *ngFor="let request of xrequests|async" class="list-group-item">
-        <div class="container">
-            <div class="row">
-                <div class="col text-lowercase">
-                    {{request.category}}
-                </div>
-                <div class="col">
-                    {{request.id}}
-                </div>
-                <div class="col">
-                    {{request.tags}}
-                </div>
-            </div>
+<div class="container-fluid">
 
-            <div class="row">
-                <div class="col">
-                    {{request.author}}
-                </div>
-                <div class="col fw-bold">
-                    {{request.title}}
-                </div>
-                <div class="col">
-                    {{request.dateTime}}
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    {{request.content}}
+    <ul class="list-group">
+        <li *ngFor="let request of xrequests|async" class="list-group-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2 text-lowercase small">
+                        {{request.category}}
+                    </div>
+                    <div class="col fw-bold text-center">
+                        {{request.title}}
+                    </div>
+                    <div class="col-2 small">
+                        {{request.tags}}
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <div *ngFor="let photo of request.photos">
-                        <img [src]="photo" [alt]="'test'"/>
+                <div class="row">
+                    <div class="col-2">
+                        {{request.authorData?.nickName}}
+                        {{request.authorData?.name}}
+                        {{request.authorData?.surName}}
+                    </div>
+                    <div class="col">
+                    </div>
+                    <div class="col-2">
+                        {{request.dateTime}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        {{request.content}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col align-content-center">
+                        <div class="container">
+                            <div class="row">
+                                <div *ngFor="let photo of request.photos" class="col-4 text-center mx-auto">
+                                    <img [src]="photo" [alt]="'test'"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </li>
-</ul>
+        </li>
+    </ul>
+
+</div>

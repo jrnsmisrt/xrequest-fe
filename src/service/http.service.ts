@@ -3,22 +3,28 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {Observable} from "rxjs";
 import {XRequest} from "../interface/XRequest";
+import {Author} from "../interface/author";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class HttpService {
-  private backendUrl = ''
+    private backendUrl = ''
 
-  constructor(private http: HttpClient) {
-    this.backendUrl = environment.localBackend;
-  }
+    constructor(private http: HttpClient) {
+        this.backendUrl = environment.localBackend;
+    }
 
-  getAllRequests(): Observable<XRequest[]> {
-    return this.http.get<XRequest[]>(`${this.backendUrl}/xrequests`);
-  }
+    getAllRequests(): Observable<XRequest[]> {
+        return this.http.get<XRequest[]>(`${this.backendUrl}/xrequests`);
+    }
 
-  getAllAuthors(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.backendUrl}/xrequests/authors`)
-  }
+    getAllAuthors(): Observable<Author[]> {
+        return this.http.get<Author[]>(`${this.backendUrl}/xrequests/authors`)
+    }
+
+    getAuthorById(id: string): Observable<Author> {
+        return this.http.get<Author>(`${this.backendUrl}/xrequests/authors/${id}`);
+    }
 }
+
