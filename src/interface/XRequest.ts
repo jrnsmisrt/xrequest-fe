@@ -1,6 +1,6 @@
 export interface XRequest {
   id:string,
-  authorId:string,
+  author:string,
   dateTime:string,
   category:string,
   title:string,
