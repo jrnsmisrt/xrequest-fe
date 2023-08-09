@@ -11,25 +11,13 @@ import {Author} from "../interface/author";
 })
 export class AppComponent implements OnInit {
     title = 'XRequests ~ enjoy life - do good';
-    xrequests: Observable<XRequest[]> = of([]);
-    authors: Observable<Author[]> = of([]);
-    imgHeight = 200;
-    imgWidth = 100;
     navStatus = false;
+    mobileNav = true;
 
     constructor(private httpService: HttpService) {
     }
 
     ngOnInit() {
-        this.xrequests = this.httpService.getAllRequests().pipe(take(1), map((requests) => {
-            requests.forEach((request) => {
-                this.httpService.getAuthorById(request.author).subscribe(x => {
-                    request.authorData = x;
-                });
-            });
-            return requests;
-        }));
-        this.authors = this.httpService.getAllAuthors().pipe(take(1));
     }
 
     toggleNav() {

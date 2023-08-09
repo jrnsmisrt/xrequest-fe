@@ -6,6 +6,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {XrequestModule} from "../xrequest/xrequest.module";
+import {NavigationModule} from "../navigation/navigation.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpClientModule,
     NgbModule,
     MatSidenavModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    XrequestModule,
+    NavigationModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
