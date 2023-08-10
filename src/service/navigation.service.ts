@@ -7,7 +7,7 @@ import {WindowSize} from "../enum/window-size";
 })
 export class NavigationService {
 
-  private _mobileNavStatus$ = new BehaviorSubject<boolean>(true);
+  private _mobileNavStatus$ = new BehaviorSubject<boolean>(false);
   private _windowWidth$ = new BehaviorSubject<number>(0);
   private _currentWindowSize$ = new BehaviorSubject<string>('SM');
 
@@ -21,6 +21,12 @@ export class NavigationService {
         this.setWindowSize(x);
         console.log(x);
       });
+  }
+
+  toggleMobileNav() {
+    const current = this._mobileNavStatus$.value;
+    this._mobileNavStatus$.next(!current);
+    console.log('toggle', current, !current);
   }
 
   get mobileNavStatus$(): Observable<boolean> {
@@ -38,7 +44,7 @@ export class NavigationService {
   private setWindowSize(size: number) {
     if (size < 320) {
       this._currentWindowSize$.next(WindowSize.XS.toString());
-    } else if (size <= 320 && size < 640) {
+    } else if (size >= 320 && size < 640) {
       this._currentWindowSize$.next(WindowSize.SM.toString());
     } else if (size >= 640 && size < 1007) {
       this._currentWindowSize$.next(WindowSize.M.toString());

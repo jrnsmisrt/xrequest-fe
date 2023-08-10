@@ -18,18 +18,25 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.navService.currentWindowSize$.subscribe((x) => {
-      if (x !== 'Extra-Small') {
+      // @ts-ignore
+      if ('Extra-Small' === x || 'Small' === x || 'Medium' === x) {
+        this.mobileNavCol = 'col-2';
+        this.mobileNav = true;
+      } else {
         this.mobileNavCol = 'invisible';
+        this.mobileNav = false;
       }
-      if (x !== 'Small') {
-        this.mobileNavCol = 'invisible';
-      }
-      console.log(x)
+      console.log(x, this.mobileNavCol)
     });
+
+    this.navService.mobileNavStatus$.subscribe((x) => {
+      this.navStatus = x;
+      x ? this.mobileNavCol = 'col-2' : this.mobileNavCol = 'invisible';
+    })
   }
 
   toggleNav() {
-    this.navStatus = !this.navStatus;
-    this.mobileNavCol = 'col-2'
+    this.navService.toggleMobileNav();
+
   }
 }

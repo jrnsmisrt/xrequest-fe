@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {NavigationService} from "../../service/navigation.service";
 
 @Component({
   selector: 'xrequest-navmobile',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class NavmobileComponent {
 
+  constructor(private navService: NavigationService) {
+  }
+
+  toggleNav() {
+    this.navService.toggleMobileNav();
+  }
 }
