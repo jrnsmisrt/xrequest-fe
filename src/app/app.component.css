@@ -1,0 +1,16 @@
+.col-nav-open {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+    animation: 1s in-out forwards;
+}
+
+@keyframes in-out {
+    0% {
+        width: 0;
+        /* visibility: hidden; */
+    }
+    100% {
+        width: 16.66666667%;
+        /* visibility: visible; */
+    }
+}

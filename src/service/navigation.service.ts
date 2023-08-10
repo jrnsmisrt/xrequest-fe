@@ -1,4 +1,4 @@
-import {HostListener, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, fromEvent, map, Observable} from "rxjs";
 import {WindowSize} from "../enum/window-size";
 
@@ -19,7 +19,6 @@ export class NavigationService {
       }))
       .subscribe((x) => {
         this.setWindowSize(x);
-        console.log(x);
       });
   }
 

@@ -1,14 +1,27 @@
 <xrequest-navigation [mobileNav]="mobileNav" class="sticky-top z-3"></xrequest-navigation>
 <!--<button *ngIf="mobileNav" class="sticky-top z-5 float-end  mr-5 btn-dark btn btn-sm" (click)="toggleNav()">nav</button>-->
 <div class="container-fluid">
-  <div class="row">
-    <div [ngClass]="[mobileNavCol]">
-      [Mobile nav menu]
+    <div class="row">
+        <div *ngIf="navStatus" [ngClass]="[mobileNavCol]">
+            <div class="sticky-top mx-auto top-20 z-2">
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+                [Mobile nav menu] <br>
+            </div>
+        </div>
+        <div class="col">
+            <xrequest-overview></xrequest-overview>
+        </div>
     </div>
-    <div class="col">
-      <xrequest-overview></xrequest-overview>
-    </div>
-  </div>
 </div>
 <!-- MOBILE -->
 <!--<div *ngIf="mobileNav" class="container w-100 z-0">
