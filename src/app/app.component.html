@@ -3,18 +3,21 @@
 
 <div *ngIf="navStatus" [ngClass]="[mobileNavCol]">
     <div class="col-nav-open-inner">
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
-        [Mobile nav menu] <br>
+        <div class="mx-auto">
+            <ul class="list-unstyled">
+                <li *ngFor="let menu of menuItemList" class="list-group">
+                    <a *ngIf="menu?.type!='dropdown'" class="list-group-item" href="{{menu.route}}">{{menu.name}}</a>
+
+                    <div *ngIf="menu?.type==='dropdown'" class="dropdown-menu list-group-item">
+                        <p  class="dropdown-header">
+                            {{menu.name}}
+                        </p>
+                        <a *ngFor="let sub of menu?.subMenu" class="nav-link dropdown-item list-group-item"
+                           href="{{menu.route}}">{{sub.name}}</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 

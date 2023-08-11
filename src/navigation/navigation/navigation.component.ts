@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {menuItemList} from "../MenuItemList";
 
 @Component({
   selector: 'xrequest-navigation',
@@ -8,4 +9,5 @@ import {Component, Input} from '@angular/core';
 export class NavigationComponent {
 
   @Input() mobileNav = true;
+  @Input() menuItems = menuItemList;
 }

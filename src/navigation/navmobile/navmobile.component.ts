@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NavigationService} from "../../service/navigation.service";
+import {MenuItem} from "../../interface/menu-item";
 
 @Component({
     selector: 'xrequest-navmobile',
@@ -8,6 +9,8 @@ import {NavigationService} from "../../service/navigation.service";
 })
 export class NavmobileComponent {
     menuLabel = 'menu';
+
+    @Input() menuItems: MenuItem[] = [];
 
     constructor(private navService: NavigationService) {
     }

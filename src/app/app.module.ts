@@ -20,7 +20,7 @@ import {NavigationModule} from "../navigation/navigation.module";
     MatSidenavModule,
     BrowserAnimationsModule,
     XrequestModule,
-    NavigationModule
+    NavigationModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

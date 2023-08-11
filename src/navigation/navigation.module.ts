@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NavmobileComponent } from './navmobile/navmobile.component';
+import {NgbDropdown, NgbDropdownMenu, NgbDropdownToggle} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -17,7 +18,10 @@ import { NavmobileComponent } from './navmobile/navmobile.component';
     NavigationComponent
   ],
     imports: [
-        CommonModule
-    ]
+        CommonModule,
+        NgbDropdownMenu,
+        NgbDropdownToggle,
+        NgbDropdown
+    ],
 })
 export class NavigationModule { }

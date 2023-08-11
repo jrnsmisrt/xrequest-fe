@@ -1,35 +1,39 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationService} from "../service/navigation.service";
+import {menuItemList} from "../navigation/MenuItemList";
+import {MenuItem} from "../interface/menu-item";
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    title = 'XRequests ~ enjoy life - do good';
-    navStatus = false;
-    mobileNav = false;
-    mobileNavCol = '';
+  title = 'XRequests ~ enjoy life - do good';
+  navStatus = false;
+  mobileNav = false;
+  mobileNavCol = '';
 
 
-    constructor(private navService: NavigationService) {
-    }
+  constructor(private navService: NavigationService) {
+  }
 
-    ngOnInit() {
-        this.navService.currentWindowSize$.subscribe((x) => {
-            // @ts-ignore
-            if ('Extra-Small' === x || 'Small' === x || 'Medium' === x) {
-                this.mobileNav = true;
-            } else {
-                this.mobileNavCol = 'invisible';
-                this.mobileNav = false;
-            }
-        });
+  ngOnInit() {
+    this.navService.currentWindowSize$.subscribe((x) => {
+      // @ts-ignore
+      if ('Extra-Small' === x || 'Small' === x || 'Medium' === x) {
+        this.mobileNav = true;
+      } else {
+        this.mobileNavCol = 'invisible';
+        this.mobileNav = false;
+      }
+    });
 
-        this.navService.mobileNavStatus$.subscribe((x) => {
-            this.navStatus = x;
-            x ? this.mobileNavCol = 'col-nav-open' : this.mobileNavCol = 'invisible';
-        })
-    }
+    this.navService.mobileNavStatus$.subscribe((x) => {
+      this.navStatus = x;
+      x ? this.mobileNavCol = 'col-nav-open' : this.mobileNavCol = 'invisible';
+    })
+  }
+
+  readonly menuItemList: MenuItem[] = menuItemList;
 }

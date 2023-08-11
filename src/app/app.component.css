@@ -5,7 +5,7 @@
     z-index: 998;
     top: 0;
     height: 100%;
-    width: 25%;
+    width: 50vw;
     margin: 0;
     animation: 1s in-out forwards;
 }
@@ -23,11 +23,11 @@
 
 @keyframes in-out {
     0% {
-        width: 0;
+        width: 25vw;
         /* visibility: hidden; */
     }
     100% {
-        width: 25%;
+        width: 50vw;
         /* visibility: visible; */
     }
 }

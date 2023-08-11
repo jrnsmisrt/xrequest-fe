@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, fromEvent, map, Observable} from "rxjs";
 import {WindowSize} from "../enum/window-size";
+import {MenuItem} from "../interface/menu-item";
 
 @Injectable({
   providedIn: 'root'
