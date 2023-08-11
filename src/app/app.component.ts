@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
     title = 'XRequests ~ enjoy life - do good';
     navStatus = false;
     mobileNav = false;
-    mobileNavCol = 'col-nav-closed';
+    mobileNavCol = '';
 
 
     constructor(private navService: NavigationService) {

@@ -1,7 +1,24 @@
 .col-nav-open {
+    position: fixed;
     flex: 0 0 auto;
-    width: 16.66666667%;
+    flex-direction: column-reverse;
+    z-index: 998;
+    top: 0;
+    height: 100%;
+    width: 25%;
+    margin: 0;
     animation: 1s in-out forwards;
+}
+
+.col-nav-open-inner {
+    position: absolute;
+    padding: 2vw;
+    z-index: 999;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: lightgray;
+    border-right: 2px solid darkgray;
 }
 
 @keyframes in-out {
@@ -10,7 +27,7 @@
         /* visibility: hidden; */
     }
     100% {
-        width: 16.66666667%;
+        width: 25%;
         /* visibility: visible; */
     }
 }
