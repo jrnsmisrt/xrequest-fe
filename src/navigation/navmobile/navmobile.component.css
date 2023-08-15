@@ -1,0 +1,6 @@
+.mobile-nav-container {
+  width: 100%;
+  height: 10vh;
+  background-color: var(--fourth-color);
+  border-bottom: 1vh var(--first-color) solid;
+}

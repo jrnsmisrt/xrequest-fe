@@ -21,6 +21,11 @@
     border-right: 2px solid darkgray;
 }
 
+.nav-link:hover{
+  background-color: lightgray;
+  border: 1px solid darkgray;
+}
+
 @keyframes in-out {
     0% {
         width: 25vw;

@@ -14,7 +14,7 @@
                         </a>
                         <div *ngIf="menu.type==='dropdown'" class="dropdown-menu" aria-labelledby="navbarDropdown"
                              ngbDropdownMenu>
-                            <a *ngFor="let sub of menu?.subMenu" class="nav-link" [ngClass]="sub?.type"
+                            <a *ngFor="let sub of menu?.subMenu" class="nav-link dropdown-nav-link" [ngClass]="sub?.type"
                                href="{{menu.route}}">{{sub.name}}</a>
                         </div>
                     </div>

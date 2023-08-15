@@ -1,7 +1,7 @@
 import {MenuItem} from "../interface/menu-item";
 
 export const menuItemList: MenuItem[] = [
-    {name: 'Home', route: ''},
+    {name: 'Home', route: '#'},
     {
         name: 'Categoriëen',
         route: '#',
@@ -9,26 +9,26 @@ export const menuItemList: MenuItem[] = [
         subMenu: [
             {
                 name: 'Vrouw zoekt man',
-                route: '',
+                route: '#',
                 type:'dropdown-item',
             },
             {
                 name: 'Man zoekt vrouw',
-                route: '',
+                route: '#',
                 type:'dropdown-item',
             },
             {
                 name: 'Vrouw zoekt vrouw',
-                route: '',
+                route: '#',
                 type:'dropdown-item',
             },
             {
                 name: 'Man zoekt man',
-                route: '',
+                route: '#',
                 type:'dropdown-item',
             }
         ]
     },
-    {name: 'PlaceHolder #1', route: ''},
-    {name: 'PlaceHolder #2', route: ''}
+    {name: 'PlaceHolder #1', route: '#'},
+    {name: 'PlaceHolder #2', route: '#'}
 ]

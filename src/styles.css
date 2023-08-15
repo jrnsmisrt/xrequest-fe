@@ -1,15 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+:root {
+  --first-color: #f70776;
+
+  --second-color: #c3195d;
+
+
+  --third-color: #680747;
+
+  --fourth-color: #141010;
+}
+
 .container {
-    display: flex;
-    flex-flow: column wrap;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 mat-sidenav-container {
-    overflow: unset;
+  overflow: unset;
 }
 
 mat-sidenav-content {
-    overflow: unset;
+  overflow: unset;
+}
+
+body {
+  background-color: ghostwhite;
+}
+
+.list-group-item {
+  border: 0;
+  background-color: whitesmoke;
+  margin-bottom: 2vh;
+  border-radius: 1vw;
 }
