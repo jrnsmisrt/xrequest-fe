@@ -10,8 +10,12 @@
   color: var(--first-color);
   background-color: var(--fourth-color);
 }
+
 .mobile-nav-button:active {
   border: 1vw var(--first-color) solid;
   color: whitesmoke;
+}
+
+.mobile-nav-button:hover {
   background-color: #211c1c;
 }
