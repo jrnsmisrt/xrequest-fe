@@ -4,3 +4,14 @@
   background-color: var(--fourth-color);
   border-bottom: 1vh var(--first-color) solid;
 }
+
+.mobile-nav-button {
+  border: 1vw var(--third-color) solid;
+  color: var(--first-color);
+  background-color: var(--fourth-color);
+}
+.mobile-nav-button:active {
+  border: 1vw var(--first-color) solid;
+  color: whitesmoke;
+  background-color: #211c1c;
+}

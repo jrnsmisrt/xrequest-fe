@@ -3,28 +3,28 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-2 col-sm-12 text-lowercase small">
-          {{request.category}}
+          <p class="request-category">{{request.category}}</p>
         </div>
         <div class="col-lg-4 col-md-2 col-sm-12 fw-bold">
-          {{request.title}}
+          <p class="request-title">{{request.title}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-4 col-md-2 col-sm-12 text-break">
           <a [href]="request.authorData?.email"
-             class="link-info">{{request.authorData?.nickName}}</a>
+             class="link-info request-email ">{{request.authorData?.nickName}}</a>
         </div>
         <div class="col">
         </div>
         <div class="col-lg-4 col-md-2 col-sm-12 text-break small">
-          {{request.dateTime | date:'dd-MM-yyyy @ HH:mm:ss'}}
+          <p class="request-date">{{request.dateTime | date:'dd-MM-yyyy @ HH:mm:ss'}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          {{request.content}}
+          <p class="request-content">{{request.content}}</p>
         </div>
       </div>
 
@@ -32,8 +32,8 @@
         <div class="col align-content-center">
           <div class="container">
             <div class="row">
-              <div *ngFor="let photo of request.photos" class="col-4 text-center mx-auto">
-                <img [src]="photo" [alt]="'test'" [height]="imgHeight" [width]="imgWidth"/>
+              <div *ngFor="let photo of request.photos" class="col-4 text-center mx-auto request-image-container">
+                <img [src]="photo" [alt]="'test'" [height]="imgHeight" [width]="imgWidth" class="request-image"/>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-2 col-sm-12 small text-break">
-          [{{request.tags}}]
+          <p class="request-tags">[{{request.tags}}]</p>
         </div>
       </div>
     </div>
