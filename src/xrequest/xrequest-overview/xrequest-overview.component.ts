@@ -12,8 +12,8 @@ import {HttpService} from "../../service/http.service";
 export class XrequestOverviewComponent implements OnInit{
   xrequests: Observable<XRequest[]> = of([]);
   authors: Observable<Author[]> = of([]);
-  imgHeight = 200;
-  imgWidth = 100;
+  imgHeight = '100%';
+  imgWidth = '200%';
 
   constructor(private httpService: HttpService) {
   }
