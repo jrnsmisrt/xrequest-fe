@@ -29,6 +29,5 @@ export const menuItemList: MenuItem[] = [
             }
         ]
     },
-    {name: 'PlaceHolder #1', route: '#'},
-    {name: 'PlaceHolder #2', route: '#'}
+    {name: 'About', route: '#'},
 ]

@@ -8,10 +8,12 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {XrequestModule} from "../xrequest/xrequest.module";
 import {NavigationModule} from "../navigation/navigation.module";
+import { NavmobilemenuComponent } from '../navigation/navmobilemenu/navmobilemenu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavmobilemenuComponent
   ],
   imports: [
     BrowserModule,

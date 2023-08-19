@@ -2,16 +2,20 @@
   background-color: var(--fourth-color);
   border-bottom: 1vh var(--first-color) solid;
 }
-.nav-link{
+
+.nav-link {
   color: whitesmoke;
 }
 
-.nav-link:hover{
-  background-color: #3d3939;
+.nav-link {
   border-radius: 1vh;
 }
 
-.dropdown-menu{
+.nav-link:hover {
+  background-color: #3d3939;
+}
+
+.dropdown-menu {
   background-color: #211c1c;
   border: 1px var(--first-color) solid;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

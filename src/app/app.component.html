@@ -1,29 +1,20 @@
 <xrequest-navigation [mobileNav]="mobileNav" class="sticky-top z-3"></xrequest-navigation>
 
-<div *ngIf="navStatus" [ngClass]="mobileNavCol">
-    <div class="col-nav-open-inner">
-        <div class="mx-auto">
-            <ul class="list-unstyled">
-                <li *ngFor="let menu of menuItemList" class="list-group">
-                    <a *ngIf="menu?.type!='dropdown'" class="list-group-item nav-item nav-link overflow-hidden" href="{{menu.route}}">{{menu.name}}</a>
+<app-navmobilemenu class="nav-mobile-menu" [navStatus]="navStatus" [mobileNavCol]="mobileNavCol"
+                   [menuItemList]="menuItemList"></app-navmobilemenu>
 
-                    <div *ngIf="menu?.type==='dropdown'" class="list-group-item overflow-hidden">
-                        <p  class="dropdown-header ">
-                            {{menu.name}}
-                        </p>
-                        <a *ngFor="let sub of menu?.subMenu" class="nav-item nav-link list-group-item overflow-hidden"
-                           href="{{menu.route}}">{{sub.name}}</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<div class="container-fluid">
+  <div class="row w-100">
+    <div class="col text-center m-auto">
+      SEARCHBAR
     </div>
+  </div>
 </div>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <xrequest-overview></xrequest-overview>
-        </div>
+  <div class="row">
+    <div class="col">
+      <xrequest-overview></xrequest-overview>
     </div>
+  </div>
 </div>
