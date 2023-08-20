@@ -1,0 +1,15 @@
+/deep/ .pagination{
+    z-index:0;
+
+}
+
+/deep/ .pagination .page-link {
+    z-index: 0;
+    color: var(--fourth-color)
+}
+
+/deep/ .pagination .page-item.active .page-link {
+    background: var(--second-color);
+    color: ghostwhite;
+    border: 1px solid var(--first-color);
+}
