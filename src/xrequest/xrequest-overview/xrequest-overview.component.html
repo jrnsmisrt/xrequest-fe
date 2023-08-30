@@ -1,4 +1,4 @@
-<xrequest-search-bar [dataSet]="xrequests"></xrequest-search-bar>
+<xrequest-search-bar [dataSet]="xrequests" (result)="setSearchResult($event)"></xrequest-search-bar>
 <div class="w-100 mt-2 p-0 d-flex justify-content-center">
   <ngb-pagination
     [collectionSize]="listLength"

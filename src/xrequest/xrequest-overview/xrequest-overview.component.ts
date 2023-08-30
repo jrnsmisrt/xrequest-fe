@@ -3,6 +3,7 @@ import {map, Observable, of, take} from "rxjs";
 import {XRequest} from "../../interface/XRequest";
 import {Author} from "../../interface/author";
 import {HttpService} from "../../service/http.service";
+import {SearchService} from "../../service/search.service";
 
 @Component({
   selector: 'xrequest-overview',
@@ -16,9 +17,9 @@ export class XrequestOverviewComponent implements OnInit {
   imgWidth = '200%';
   listLength = 0;
   page = 1;
-  pageSize=5;
+  pageSize = 5;
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private searchService: SearchService) {
   }
 
   ngOnInit(): void {
@@ -32,7 +33,16 @@ export class XrequestOverviewComponent implements OnInit {
       return requests;
     }));
     this.authors = this.httpService.getAllAuthors().pipe(take(1));
+    this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) =>{
+      console.log(x);
+    });
   }
 
   protected readonly length = length;
+
+  setSearchResult(result: { resultRequest: XRequest[], hits: number }) {
+    // this.xrequests = of(result.resultRequest);
+    console.log(result);
+    this.xrequests = this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest));
+  }
 }

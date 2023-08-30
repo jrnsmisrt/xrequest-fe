@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {XRequest} from "../../interface/XRequest";
 import {SearchService} from "../../service/search.service";
 import {Observable, of} from "rxjs";
@@ -12,7 +12,7 @@ export class SearchBarComponent implements OnInit {
 
   searchTerms: string = '';
   @Input() dataSet: Observable<XRequest[]> = of([]);
-  @Output() result: { resultRequest: XRequest[], hits: number } = {resultRequest: [], hits: 0};
+  @Output() result = new EventEmitter<{ resultRequest: XRequest[], hits: number }>();
 
   fromDataSet: XRequest[] = [];
 
@@ -24,6 +24,6 @@ export class SearchBarComponent implements OnInit {
   }
 
   search() {
-    this.result = this.searchService.searchDataSetForString(this.searchTerms, this.fromDataSet);
+    this.result.emit(this.searchService.searchDataSetForString(this.searchTerms, this.fromDataSet));
   }
 }

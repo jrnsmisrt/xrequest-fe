@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
 import {XRequest} from "../interface/XRequest";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
+
+  $xRequestSearchResult: Observable<{ resultRequest: XRequest[], hits: number }> = of({resultRequest: [], hits: 0});
 
   constructor() {
   }
@@ -47,6 +50,7 @@ export class SearchService {
     console.log(reducedResultSet);
     console.log(hits);
 
+    this.$xRequestSearchResult = of({resultRequest: reducedResultSet, hits: hits});
     return {resultRequest: reducedResultSet, hits: hits};
   }
 }
