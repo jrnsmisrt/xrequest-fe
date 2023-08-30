@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { XrequestOverviewComponent } from './xrequest-overview/xrequest-overview.component';
 import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
+import {WebComponentsModule} from "../webcomponents/web-components.module";
 
 
 
@@ -14,7 +15,8 @@ import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
     ],
     imports: [
         CommonModule,
-        NgbPagination
+        NgbPagination,
+        WebComponentsModule
     ]
 })
 export class XrequestModule { }
