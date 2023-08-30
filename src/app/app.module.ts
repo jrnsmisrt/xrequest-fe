@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {XrequestModule} from "../xrequest/xrequest.module";
 import {NavigationModule} from "../navigation/navigation.module";
 import { NavmobilemenuComponent } from '../navigation/navmobilemenu/navmobilemenu.component';
+import {WebComponentsModule} from "../webcomponents/web-components.module";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NavmobilemenuComponent } from '../navigation/navmobilemenu/navmobilemen
     BrowserAnimationsModule,
     XrequestModule,
     NavigationModule,
+    WebComponentsModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
