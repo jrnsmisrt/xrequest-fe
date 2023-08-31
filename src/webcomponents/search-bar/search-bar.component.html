@@ -8,4 +8,10 @@
       </div>
     </div>
   </div>
+  <div *ngIf="searchPerformed$|async" class="row">
+    <div class="col-3 m-0">
+      <p class="small">Number of hits: </p>
+    </div>
+    <div class="col-2 m-0"><h6>{{hits}}</h6></div>
+  </div>
 </div>

@@ -33,7 +33,7 @@ export class XrequestOverviewComponent implements OnInit {
       return requests;
     }));
     this.authors = this.httpService.getAllAuthors().pipe(take(1));
-    this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) =>{
+    this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) => {
       console.log(x);
     });
   }
@@ -43,6 +43,9 @@ export class XrequestOverviewComponent implements OnInit {
   setSearchResult(result: { resultRequest: XRequest[], hits: number }) {
     // this.xrequests = of(result.resultRequest);
     console.log(result);
-    this.xrequests = this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest));
+    this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) => {
+      console.log(x);
+      this.xrequests = of(x);
+    });
   }
 }

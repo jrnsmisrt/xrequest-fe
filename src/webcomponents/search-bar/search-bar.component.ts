@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {XRequest} from "../../interface/XRequest";
 import {SearchService} from "../../service/search.service";
-import {Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
 
 @Component({
   selector: 'xrequest-search-bar',
@@ -10,7 +10,10 @@ import {Observable, of} from "rxjs";
 })
 export class SearchBarComponent implements OnInit {
 
+  private _searchPerformed$ = new BehaviorSubject<boolean>(false);
   searchTerms: string = '';
+  hits = 0;
+
   @Input() dataSet: Observable<XRequest[]> = of([]);
   @Output() result = new EventEmitter<{ resultRequest: XRequest[], hits: number }>();
 
@@ -24,6 +27,14 @@ export class SearchBarComponent implements OnInit {
   }
 
   search() {
-    this.result.emit(this.searchService.searchDataSetForString(this.searchTerms, this.fromDataSet));
+    this._searchPerformed$.next(true);
+    const result = this.searchService.searchDataSetForString(this.searchTerms, this.fromDataSet);
+    this.hits = result.hits;
+
+    this.result.emit(result);
+  }
+
+  get searchPerformed$(): Observable<boolean> {
+    return this._searchPerformed$.asObservable();
   }
 }
