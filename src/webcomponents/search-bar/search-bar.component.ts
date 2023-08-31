@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {XRequest} from "../../interface/XRequest";
 import {SearchService} from "../../service/search.service";
 import {BehaviorSubject, Observable, of} from "rxjs";
+import {LoadingService} from "../../service/loading.service";
 
 @Component({
   selector: 'xrequest-search-bar',
@@ -19,7 +20,7 @@ export class SearchBarComponent implements OnInit {
 
   fromDataSet: XRequest[] = [];
 
-  constructor(private searchService: SearchService) {
+  constructor(private searchService: SearchService, private loadingService: LoadingService) {
   }
 
   ngOnInit(): void {
@@ -36,5 +37,17 @@ export class SearchBarComponent implements OnInit {
 
   get searchPerformed$(): Observable<boolean> {
     return this._searchPerformed$.asObservable();
+  }
+
+  // async loader() {
+  //   const status = await firstValueFrom(this.loadingService.isLoading$);
+  //   this.loadingService.isLoading$ = !status;
+  // }
+  reset() {
+    this._searchPerformed$.next(false);
+    this.searchService.searchDataSetForString('', this.fromDataSet);
+    this.hits = 0
+
+    this.result.emit();
   }
 }
