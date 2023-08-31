@@ -1,6 +1,7 @@
 <xrequest-search-bar [dataSet]="xrequests" (result)="setSearchResult($event)"></xrequest-search-bar>
 <div class="w-100 mt-2 p-0 d-flex justify-content-center">
   <ngb-pagination
+    *ngIf="listLength>0"
     [collectionSize]="listLength"
     [(page)]="page"
     [pageSize]="pageSize"
@@ -66,6 +67,7 @@
 
 <div class="w-100 mt-5 p-0 d-flex justify-content-center">
   <ngb-pagination
+    *ngIf="listLength>0"
     [collectionSize]="listLength"
     [(page)]="page"
     [pageSize]="pageSize"

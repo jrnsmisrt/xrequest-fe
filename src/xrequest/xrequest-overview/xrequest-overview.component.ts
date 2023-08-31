@@ -46,6 +46,7 @@ export class XrequestOverviewComponent implements OnInit {
     this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) => {
       console.log(x);
       this.xrequests = of(x);
+      this.listLength = x.length;
     });
   }
 }
