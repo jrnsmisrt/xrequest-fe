@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {XRequest} from "../interface/XRequest";
 import {BehaviorSubject, Observable} from "rxjs";
+import {LoadingService} from "./loading.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,11 @@ export class SearchService {
     hits: number
   }>({resultRequest: [], hits: 0});
 
-  constructor() {
+  constructor(private loadingService: LoadingService) {
   }
 
   searchDataSetForString(input: string, dataSet: XRequest[]): { resultRequest: XRequest[], hits: number } {
+    this.loadingService.isLoading$ = true;
     let hits = 0;
     let copySet = dataSet;
     const inputMapped = input.toLowerCase();
@@ -52,6 +54,7 @@ export class SearchService {
     const reducedResultSet: XRequest[] = [...new Set(resultSet)];
 
     this._$xRequestSearchResultSubj.next({resultRequest: reducedResultSet, hits: hits});
+    this.loadingService.isLoading$ = false;
     return {resultRequest: reducedResultSet, hits: hits};
   }
 }

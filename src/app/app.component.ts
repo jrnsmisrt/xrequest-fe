@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {NavigationService} from "../service/navigation.service";
 import {menuItemList} from "../navigation/MenuItemList";
 import {MenuItem} from "../interface/menu-item";
+import {Observable} from "rxjs";
+import {LoadingService} from "../service/loading.service";
 
 @Component({
   selector: 'app-root',
@@ -9,16 +11,20 @@ import {MenuItem} from "../interface/menu-item";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  loading$: Observable<boolean> = new Observable<boolean>();
+
   title = 'XRequests ~ enjoy life - do good';
   navStatus = false;
   mobileNav = false;
   mobileNavCol = '';
 
 
-  constructor(private navService: NavigationService) {
+  constructor(private navService: NavigationService, private loaderService: LoadingService) {
   }
 
   ngOnInit() {
+    this.loading$ = this.loaderService.isLoading$;
     this.navService.currentWindowSize$.subscribe((x) => {
       // @ts-ignore
       if ('Extra-Small' === x || 'Small' === x || 'Medium' === x) {
