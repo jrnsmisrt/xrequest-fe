@@ -14,7 +14,6 @@
   height: 100%;
   width: 100%;
   background: var(--fourth-color);
-  border-right: 2vw solid var(--first-color);
   box-shadow: 20px 4px 8px -2px rgba(0, 0, 0, 0.2);
 }
 
