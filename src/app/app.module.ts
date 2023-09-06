@@ -12,17 +12,18 @@ import {NavmobilemenuComponent} from '../navigation/navmobilemenu/navmobilemenu.
 import {WebComponentsModule} from "../webcomponents/web-components.module";
 import {RouterModule} from "@angular/router";
 import {routes} from "../routing/routes";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavmobilemenuComponent
+    NavmobilemenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(
       routes,
-      {enableTracing: true}
     ),
     HttpClientModule,
     NgbModule,

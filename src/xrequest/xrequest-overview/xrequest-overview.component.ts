@@ -4,6 +4,7 @@ import {XRequest} from "../../interface/XRequest";
 import {Author} from "../../interface/author";
 import {HttpService} from "../../service/http.service";
 import {SearchService} from "../../service/search.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'xrequest-overview',
@@ -19,7 +20,10 @@ export class XrequestOverviewComponent implements OnInit {
   page = 1;
   pageSize = 5;
 
-  constructor(private httpService: HttpService, private searchService: SearchService) {
+  constructor(private httpService: HttpService,
+              private searchService: SearchService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -36,6 +40,7 @@ export class XrequestOverviewComponent implements OnInit {
     this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) => {
       console.log(x);
     });
+    this.setOverviewFromParams();
   }
 
   protected readonly length = length;
@@ -48,5 +53,14 @@ export class XrequestOverviewComponent implements OnInit {
       this.xrequests = of(x);
       this.listLength = x.length;
     });
+  }
+
+  setOverviewFromParams() {
+    console.log(this.activatedRoute.snapshot.paramMap.get('category'));
+    this.activatedRoute.paramMap.subscribe(p => console.log(p.get('category')))
+    console.log(this.router.url);
+    console.log(this.activatedRoute.snapshot.params)
+
+   // this.activatedRoute.paramMap.subscribe((x) => console.log(x.get('category')))
   }
 }

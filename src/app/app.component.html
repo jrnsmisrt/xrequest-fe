@@ -1,12 +1,1 @@
-  <xrequest-navigation [mobileNav]="mobileNav" class="sticky-top z-3"></xrequest-navigation>
-  <xrequest-loader [loading]="!!(loading$|async)"></xrequest-loader>
-  <app-navmobilemenu class="nav-mobile-menu" [navStatus]="navStatus" [mobileNavCol]="mobileNavCol"
-                     [menuItemList]="menuItemList"></app-navmobilemenu>
-
-  <div class="container-fluid min-vh-100">
-    <div class="row">
-      <div class="col">
-        <xrequest-overview></xrequest-overview>
-      </div>
-    </div>
-  </div>
+<router-outlet></router-outlet>
