@@ -1,17 +1,19 @@
-<div class="container-fluid mt-5 search-bar">
-  <div class="row w-100 d-flex justify-content-center m-0">
-    <div class="w-100 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-0">
-      <div class="input-group input-group-sm w-100 m-0">
-        <input id="search-input" type="text" class="form-control" placeholder="abc..." aria-label="Zoek" aria-describedby="button-addon2"
-        [(ngModel)]="searchTerms">
-        <button [disabled]="searchTerms.length===0" class="btn btn-outline-secondary m-0" type="button" id="button-addon2" (click)="search()">Zoek</button>
-        <button [disabled]="!(searchPerformed$|async)" class="btn btn-outline-secondary m-0" type="button" id="button-addon3" (click)="reset()">Reset</button>
-<!--        <button class="btn btn-outline-secondary" type="button" id="button-addon3" (click)="loader()">showLoader</button>-->
+<div class="container-fluid justify-content-center mt-5 search-bar">
+      <div class="search-input-group input-group input-group-sm m-0 p-0">
+        <input id="search-input" type="text" class="search-input form-control"
+               placeholder="abc..." aria-label="Zoek" aria-describedby="button-addon2"
+               [(ngModel)]="searchTerms">
+        <button [disabled]="searchTerms.length===0"
+                class="btn btn-outline-secondary m-0"
+                type="button" id="button-addon2"
+                (click)="search()">Zoek</button>
+        <button [disabled]="!(searchPerformed$|async)"
+                class="btn btn-outline-secondary m-0"
+                type="button" id="button-addon3"
+                (click)="reset()">Reset</button>
+        <!--        <button class="btn btn-outline-secondary" type="button" id="button-addon3" (click)="loader()">showLoader</button>-->
       </div>
       <label *ngIf="searchPerformed$|async"  for="search-input" class="mx-auto p-0">
         <span class="small m-0">Number of hits: <span class="fw-bold mx-2">{{hits}}</span></span>
       </label>
-
-    </div>
-  </div>
 </div>

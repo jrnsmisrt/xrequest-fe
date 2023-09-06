@@ -1,4 +1,17 @@
 .search-bar{
   position:relative;
   z-index: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input-group{
+  width: 50vw;
+  margin: auto;
+
+}
+
+.search-input{
+  min-width: 20vw;
+  max-width: 50vw;
 }
