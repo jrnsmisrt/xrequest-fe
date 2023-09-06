@@ -5,6 +5,7 @@ import {Author} from "../../interface/author";
 import {HttpService} from "../../service/http.service";
 import {SearchService} from "../../service/search.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Category} from "../../enum/xrequest-category";
 
 @Component({
   selector: 'xrequest-overview',
@@ -19,6 +20,7 @@ export class XrequestOverviewComponent implements OnInit {
   listLength = 0;
   page = 1;
   pageSize = 5;
+  private paramCategory: Category = Category.NONE;
 
   constructor(private httpService: HttpService,
               private searchService: SearchService,
@@ -33,34 +35,37 @@ export class XrequestOverviewComponent implements OnInit {
           request.authorData = x;
         });
       });
-      this.listLength = requests.length;
-      return requests;
+
+      const finalRequests: XRequest[] = this.setOverviewFromParams(requests);
+      this.listLength = finalRequests.length;
+
+      return finalRequests;
     }));
     this.authors = this.httpService.getAllAuthors().pipe(take(1));
-    this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) => {
-      console.log(x);
-    });
-    this.setOverviewFromParams();
   }
 
   protected readonly length = length;
 
-  setSearchResult(result: { resultRequest: XRequest[], hits: number }) {
-    // this.xrequests = of(result.resultRequest);
-    console.log(result);
+  setSearchResult() {
     this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) => {
-      console.log(x);
       this.xrequests = of(x);
       this.listLength = x.length;
     });
   }
 
-  setOverviewFromParams() {
-    console.log(this.activatedRoute.snapshot.paramMap.get('category'));
-    this.activatedRoute.paramMap.subscribe(p => console.log(p.get('category')))
-    console.log(this.router.url);
-    console.log(this.activatedRoute.snapshot.params)
+  setOverviewFromParams(dataSet: XRequest[]): XRequest[] {
+    let finalDataSet: XRequest[] = dataSet;
 
-   // this.activatedRoute.paramMap.subscribe((x) => console.log(x.get('category')))
+    this.activatedRoute.queryParams.subscribe((params) => {
+      if(!!params['category']){
+        console.log(!!params['category']);
+        if (params['category']?.toUpperCase() != Category.NONE) {
+          this.paramCategory = params['category'];
+          finalDataSet = this.searchService.filterListByCategory(this.paramCategory, dataSet);
+        }
+      }
+    });
+
+    return finalDataSet;
   }
 }

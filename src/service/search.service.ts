@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {XRequest} from "../interface/XRequest";
 import {BehaviorSubject, Observable} from "rxjs";
 import {LoadingService} from "./loading.service";
+import {Category} from "../enum/xrequest-category";
 
 @Injectable({
   providedIn: 'root'
@@ -58,7 +59,16 @@ export class SearchService {
     return {resultRequest: reducedResultSet, hits: hits};
   }
 
-  sortListByCategory(category: string){
+  filterListByCategory(category: Category, dataSet: XRequest[]): XRequest[] {
+    this.loadingService.isLoading$ = true;
+    console.log(category);
+    const resultData = dataSet.filter((request) => {
+      return request?.category?.toLowerCase() === category?.toString();
+    });
 
+    console.log(resultData);
+    this.loadingService.isLoading$ = false;
+
+    return resultData;
   }
 }

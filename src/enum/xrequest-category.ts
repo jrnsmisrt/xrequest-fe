@@ -1,4 +1,5 @@
 export enum Category{
+  NONE,
   FEMALE4MALE,
   FEMALE4FEMALE,
   FEMALE4COUPLE,
