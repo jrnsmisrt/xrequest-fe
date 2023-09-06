@@ -1,4 +1,5 @@
 .mobile-nav-container {
+  position: fixed;
   width: 100%;
   height: 10vh;
   background-color: var(--fourth-color);
@@ -6,6 +7,7 @@
 }
 
 .mobile-nav-button {
+  float: right;
   border: 1vw var(--third-color) solid;
   color: var(--first-color);
   background-color: var(--fourth-color);
