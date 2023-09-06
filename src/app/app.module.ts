@@ -8,8 +8,10 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {XrequestModule} from "../xrequest/xrequest.module";
 import {NavigationModule} from "../navigation/navigation.module";
-import { NavmobilemenuComponent } from '../navigation/navmobilemenu/navmobilemenu.component';
+import {NavmobilemenuComponent} from '../navigation/navmobilemenu/navmobilemenu.component';
 import {WebComponentsModule} from "../webcomponents/web-components.module";
+import {RouterModule} from "@angular/router";
+import {routes} from "../routing/routes";
 
 @NgModule({
   declarations: [
@@ -18,6 +20,10 @@ import {WebComponentsModule} from "../webcomponents/web-components.module";
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(
+      routes,
+      {enableTracing: true}
+    ),
     HttpClientModule,
     NgbModule,
     MatSidenavModule,

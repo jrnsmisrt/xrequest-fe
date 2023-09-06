@@ -13,3 +13,7 @@
     color: ghostwhite;
     border: 1px solid var(--first-color);
 }
+.overview-container{
+  padding: 0;
+  margin: 12vh 0 0;
+}

@@ -1,5 +1,7 @@
+<div class="overview-container">
+
 <xrequest-search-bar [dataSet]="xrequests" (result)="setSearchResult($event)"></xrequest-search-bar>
-<div class="w-100 mt-2 p-0 d-flex justify-content-center">
+<div class="w-100 mt-2 mb-2 p-0 d-flex justify-content-center">
   <ngb-pagination
     *ngIf="listLength>0"
     [collectionSize]="listLength"
@@ -74,4 +76,5 @@
     [boundaryLinks]="false"
     class="m-0">
   </ngb-pagination>
+</div>
 </div>

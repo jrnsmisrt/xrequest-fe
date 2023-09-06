@@ -57,4 +57,8 @@ export class SearchService {
     this.loadingService.isLoading$ = false;
     return {resultRequest: reducedResultSet, hits: hits};
   }
+
+  sortListByCategory(category: string){
+
+  }
 }
