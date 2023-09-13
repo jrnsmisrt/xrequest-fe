@@ -13,14 +13,17 @@ import {Category} from "../../enum/xrequest-category";
   styleUrls: ['./xrequest-overview.component.css']
 })
 export class XrequestOverviewComponent implements OnInit {
+  private paramCategory: Category = Category.NONE;
+  protected readonly length = length;
+
   xrequests: Observable<XRequest[]> = of([]);
   authors: Observable<Author[]> = of([]);
+
   imgHeight = '100%';
   imgWidth = '200%';
   listLength = 0;
   page = 1;
   pageSize = 5;
-  private paramCategory: Category = Category.NONE;
 
   constructor(private httpService: HttpService,
               private searchService: SearchService,
@@ -41,10 +44,10 @@ export class XrequestOverviewComponent implements OnInit {
 
       return finalRequests;
     }));
+
     this.authors = this.httpService.getAllAuthors().pipe(take(1));
   }
 
-  protected readonly length = length;
 
   setSearchResult() {
     this.searchService.$xRequestSearchResult.pipe(map(x => x.resultRequest)).subscribe((x) => {
@@ -57,8 +60,7 @@ export class XrequestOverviewComponent implements OnInit {
     let finalDataSet: XRequest[] = dataSet;
 
     this.activatedRoute.queryParams.subscribe((params) => {
-      if(!!params['category']){
-        console.log(!!params['category']);
+      if (!!params['category']) {
         if (params['category']?.toUpperCase() != Category.NONE) {
           this.paramCategory = params['category'];
           finalDataSet = this.searchService.filterListByCategory(this.paramCategory, dataSet);
