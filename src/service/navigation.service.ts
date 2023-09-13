@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, fromEvent, map, Observable} from "rxjs";
 import {WindowSize} from "../enum/window-size";
-import {MenuItem} from "../interface/menu-item";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +12,8 @@ export class NavigationService {
   private _currentWindowSize$ = new BehaviorSubject<string>('SM');
 
   constructor() {
+    this.setWindowSize(window.innerWidth);
+
     fromEvent(window, 'resize')
       .pipe(map((y) => {
         const s = y.target as Window;
@@ -26,7 +27,6 @@ export class NavigationService {
   toggleMobileNav() {
     const current = this._mobileNavStatus$.value;
     this._mobileNavStatus$.next(!current);
-    console.log('toggle', current, !current);
   }
 
   get mobileNavStatus$(): Observable<boolean> {

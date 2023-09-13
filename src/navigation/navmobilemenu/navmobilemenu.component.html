@@ -1,20 +1,36 @@
 <div *ngIf="navStatus" [ngClass]="mobileNavCol">
-    <div class="col-nav-open-inner">
-        <div class="mx-auto">
-            <ul class="list-unstyled">
-                <li *ngFor="let menu of menuItemList" class="list-group">
-                    <a *ngIf="menu?.type!='dropdown'" class="list-group-item nav-item nav-link overflow-hidden"
-                       href="{{menu.route}}">{{menu.name}}</a>
+  <div class="col-nav-open-inner">
+    <div class="mx-auto">
+      <ul class="list-unstyled">
+        <li *ngFor="let menu of menuItemList" class="list-group">
+          <button *ngIf="menu?.type!='dropdown'" class="list-group-item nav-item nav-link overflow-hidden">
+            {{menu.name}}</button>
 
-                    <div *ngIf="menu?.type==='dropdown'" class="list-group-item overflow-hidden">
-                        <p class="dropdown-header ">
-                            {{menu.name}}
-                        </p>
-                        <a *ngFor="let sub of menu?.subMenu" class="nav-item nav-link list-group-item overflow-hidden"
-                           href="{{menu.route}}">{{sub.name}}</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+          <div *ngIf="menu?.type==='dropdown'" class="list-group-item overflow-hidden">
+            <div>
+              <p class="dropdown-header ">
+                {{menu.name}}
+              </p>
+
+              <div *ngFor="let s of menu?.subMenu">
+                <div *ngIf="s.type==='dropdown'">
+                  <ul>
+                    <li class="list-unstyled">
+                      <p class="dropdown-header">{{s.name}}</p>
+                      <ul>
+                        <li *ngFor="let ss of s.subMenu" class="list-unstyled">
+                          <a class="list-group-item overflow-hidden">{{ss.name}}</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
 </div>
