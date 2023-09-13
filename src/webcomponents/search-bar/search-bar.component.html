@@ -1,19 +1,22 @@
 <div class="container-fluid justify-content-center search-bar">
-      <div class="search-input-group input-group input-group-sm m-0 p-0">
-        <input id="search-input" type="text" class="search-input form-control"
-               placeholder="abc..." aria-label="Zoek" aria-describedby="button-addon2"
-               [(ngModel)]="searchTerms">
-        <button [disabled]="searchTerms.length===0"
-                class="btn btn-outline-secondary m-0"
-                type="button" id="button-addon2"
-                (click)="search()">Zoek</button>
-        <button [disabled]="!(searchPerformed$|async)"
-                class="btn btn-outline-secondary m-0"
-                type="button" id="button-addon3"
-                (click)="reset()">Reset</button>
-        <!--        <button class="btn btn-outline-secondary" type="button" id="button-addon3" (click)="loader()">showLoader</button>-->
-      </div>
-      <label *ngIf="searchPerformed$|async"  for="search-input" class="mx-auto p-0">
-        <span class="small m-0">Number of hits: <span class="fw-bold mx-2">{{hits}}</span></span>
-      </label>
+  <div class="search-input-group input-group input-group-sm m-0 p-0">
+    <input id="search-input" type="text" class="search-input form-control"
+           placeholder="abc..." aria-label="Zoek" aria-describedby="button-addon2"
+           [(ngModel)]="searchTerms">
+    <button [disabled]="searchTerms.length===0"
+            class="btn btn-outline-secondary m-0"
+            type="button" id="button-addon2"
+            (click)="search()">Zoek
+    </button>
+    <button [disabled]="!(searchPerformed$|async)"
+            class="btn btn-outline-secondary m-0"
+            type="button" id="button-addon3"
+            (click)="reset()">Reset
+    </button>
+  </div>
+</div>
+<div class="w-100 text-center">
+  <label *ngIf="searchPerformed$|async" for="search-input" class="p-0 m-auto">
+    <span class="small m-0 mt-2 pe-2 ps-2 hits-highlight"><span class="fw-bold">{{hits}}</span> hits found </span>
+  </label>
 </div>
