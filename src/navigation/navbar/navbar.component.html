@@ -5,17 +5,18 @@
         <li *ngFor="let menu of menuItems" class="nav-item m-0" [ngClass]="menu.type">
           <div *ngIf="menu.type==='dropdown'" ngbDropdown>
 
-            <a href="{{menu.route}}" class="nav-link"
+            <a class="nav-link"
                [ngClass]="menu.type==='dropdown'? 'dropdown-toggle':''"
                data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false"
                ngbDropdownToggle>
               {{menu.name}}
             </a>
+
             <div *ngIf="menu.type==='dropdown'" class="dropdown-menu" aria-labelledby="navbarDropdown"
                  ngbDropdownMenu>
               <a *ngFor="let sub of menu?.subMenu" class="nav-link dropdown-nav-link" [ngClass]="sub?.type"
-                 href="{{menu.route}}">{{sub.name}}</a>
+                 href="{{sub.route}}">{{sub.name}}</a>
             </div>
           </div>
 

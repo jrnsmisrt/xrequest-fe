@@ -1,6 +1,6 @@
 export interface MenuItem {
     name: string,
-    route: string,
+    route?: string,
     type?: string,
     subMenu?: MenuItem[],
 }

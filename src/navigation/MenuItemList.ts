@@ -1,20 +1,20 @@
 import {MenuItem} from "../interface/menu-item";
+import {categoryRoutes} from "../routing/routes";
 
 export const menuItemList: MenuItem[] = [
     {name: 'Home', route: '#'},
     {
         name: 'Categoriëen',
-        route: '#',
         type: 'dropdown',
         subMenu: [
             {
                 name: 'Vrouw zoekt man',
-                route: '#',
+                route: categoryRoutes.FEMALE4MALE,
                 type:'dropdown-item',
             },
             {
                 name: 'Man zoekt vrouw',
-                route: '#',
+                route: categoryRoutes.MALE4MALE,
                 type:'dropdown-item',
             },
             {
