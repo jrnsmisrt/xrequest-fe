@@ -5,13 +5,13 @@
         <li *ngFor="let menu of menuItems" class="nav-item m-0" [ngClass]="menu.type">
           <div *ngIf="menu.type==='dropdown'" ngbDropdown>
 
-            <a class="nav-link"
+            <button class="nav-link"
                [ngClass]="menu.type==='dropdown'? 'dropdown-toggle':''"
                data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false"
                ngbDropdownToggle>
               {{menu.name}}
-            </a>
+            </button>
 
             <div *ngIf="menu.type==='dropdown'" class="dropdown-menu" aria-labelledby="navbarDropdown"
                  ngbDropdownMenu>
