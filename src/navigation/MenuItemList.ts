@@ -2,7 +2,7 @@ import {MenuItem} from "../interface/menu-item";
 import {categoryRoutes} from "../routing/routes";
 
 export const menuItemList: MenuItem[] = [
-  {name: 'Home', route: '#'},
+  {name: 'Home', route: ''},
   {
     name: 'Categoriëen',
     type: 'dropdown',

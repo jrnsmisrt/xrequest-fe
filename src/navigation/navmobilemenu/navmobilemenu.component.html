@@ -3,29 +3,55 @@
     <div class="mx-auto">
       <ul class="list-unstyled">
         <li *ngFor="let menu of menuItemList" class="list-group">
-          <button *ngIf="menu?.type!='dropdown'" class="list-group-item nav-item nav-link overflow-hidden">
-            {{menu.name}}</button>
+          <a *ngIf="menu?.type!='dropdown'"
+             class="list-group-item nav-item nav-link overflow-hidden"
+             [href]="menu?.route">
+            {{menu.name}}</a>
 
           <div *ngIf="menu?.type==='dropdown'" class="list-group-item overflow-hidden">
-            <div>
-              <p class="dropdown-header ">
-                {{menu.name}}
-              </p>
+            <div ngbAccordion class="accordion" id="{{menu?.name}}-acc">
+              <div ngbAccordionItem class="accordion-item">
+                <div ngbAccordionHeader class="accordion-header">
+                  <button ngbAccordionButton>
+                    {{menu?.name}}
+                  </button>
+                </div>
 
-              <div *ngFor="let s of menu?.subMenu">
-                <div *ngIf="s.type==='dropdown'">
-                  <ul>
-                    <li class="list-unstyled">
-                      <p class="dropdown-header">{{s.name}}</p>
-                      <ul>
-                        <li *ngFor="let ss of s.subMenu" class="list-unstyled">
-                          <a class="list-group-item overflow-hidden">{{ss.name}}</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                <div ngbAccordionCollapse id="collapse-{{menu?.name}}">
+                  <div ngbAccordionBody class="accordion-body">
+                    <ng-template>
+
+                      <div *ngFor="let s of menu?.subMenu">
+                        <div *ngIf="s?.type==='dropdown'">
+                          <ul>
+                            <li class="list-unstyled">
+                              <div ngbAccordion>
+                                <div ngbAccordionItem>
+                                  <div ngbAccordionHeader>
+                                    <button ngbAccordionButton class="dropdown-header">{{s.name}}</button>
+                                  </div>
+                                  <div ngbAccordionCollapse>
+                                    <div ngbAccordionBody>
+                                      <ul>
+                                        <li *ngFor="let ss of s.subMenu" class="list-unstyled">
+                                          <a class="list-group-item overflow-hidden" [href]="ss?.route">{{ss.name}}</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </ng-template>
+
+                  </div>
                 </div>
               </div>
+
+
             </div>
 
           </div>
