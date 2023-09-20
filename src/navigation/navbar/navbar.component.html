@@ -15,9 +15,35 @@
 
             <div *ngIf="menu.type==='dropdown'" class="dropdown-menu" aria-labelledby="navbarDropdown"
                  ngbDropdownMenu>
-              <a *ngFor="let sub of menu?.subMenu" class="nav-link dropdown-nav-link" [ngClass]="sub?.type"
-                 href="{{sub.route}}">{{sub.name}}</a>
+              <div *ngFor="let s of menu?.subMenu">
+                <ng-container *ngIf="s?.type==='dropdown'">
+                  <ul>
+                    <li class="list-unstyled">
+                      <div ngbAccordion>
+                        <div ngbAccordionItem>
+                          <div ngbAccordionHeader>
+                            <button ngbAccordionButton class="dropdown-header">{{s?.name}}</button>
+                          </div>
+                          <div ngbAccordionCollapse>
+                            <ng-container>
+                              <ul>
+                                <li *ngFor="let ss of s?.subMenu" class="list-unstyled">
+                                  <a class="list-group-item overflow-hidden"
+                                     [href]="ss?.route">{{ss?.name}}</a>
+                                </li>
+                              </ul>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </ng-container>
+              </div>
+
+
             </div>
+
           </div>
 
           <div *ngIf="menu.type!='dropdown'">

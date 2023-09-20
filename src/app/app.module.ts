@@ -12,7 +12,7 @@ import {NavmobilemenuComponent} from '../navigation/navmobilemenu/navmobilemenu.
 import {WebComponentsModule} from "../webcomponents/web-components.module";
 import {RouterModule} from "@angular/router";
 import {routes} from "../routing/routes";
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   declarations: [
