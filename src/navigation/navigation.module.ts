@@ -1,27 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { NavmobileComponent } from './navmobile/navmobile.component';
-import {NgbDropdown, NgbDropdownMenu, NgbDropdownToggle} from "@ng-bootstrap/ng-bootstrap";
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {NavbarComponent} from './navbar/navbar.component';
+import {NavigationComponent} from './navigation/navigation.component';
+import {NavmobileComponent} from './navmobile/navmobile.component';
+import {NgbAccordionModule, NgbDropdown, NgbDropdownMenu, NgbDropdownToggle} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
-    declarations: [
-        NavbarComponent,
-        NavigationComponent,
-        NavmobileComponent
-    ],
+  declarations: [
+    NavbarComponent,
+    NavigationComponent,
+    NavmobileComponent
+  ],
   exports: [
     NavbarComponent,
-    NavigationComponent
+    NavigationComponent,
+    NavmobileComponent
   ],
-    imports: [
-        CommonModule,
-        NgbDropdownMenu,
-        NgbDropdownToggle,
-        NgbDropdown
-    ],
+  imports: [
+    CommonModule,
+    NgbDropdownMenu,
+    NgbDropdownToggle,
+    NgbDropdown,
+    NgbAccordionModule
+  ],
 })
-export class NavigationModule { }
+export class NavigationModule {
+}

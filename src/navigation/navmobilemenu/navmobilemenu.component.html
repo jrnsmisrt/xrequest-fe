@@ -6,55 +6,58 @@
           <a *ngIf="menu?.type!='dropdown'"
              class="list-group-item nav-item nav-link overflow-hidden"
              [href]="menu?.route">
-            {{menu.name}}</a>
+            {{menu?.name}}</a>
 
-          <div *ngIf="menu?.type==='dropdown'" class="list-group-item overflow-hidden">
-            <div ngbAccordion class="accordion" id="{{menu?.name}}-acc">
-              <div ngbAccordionItem class="accordion-item">
-                <div ngbAccordionHeader class="accordion-header">
-                  <button ngbAccordionButton>
-                    {{menu?.name}}
-                  </button>
-                </div>
+          <ng-container *ngIf="menu?.type==='dropdown'">
+            <div class="list-group-item overflow-hidden">
+              <div ngbAccordion class="accordion" id="{{menu?.name}}-acc">
+                <div ngbAccordionItem class="accordion-item">
+                  <div ngbAccordionHeader class="accordion-header">
+                    <button ngbAccordionButton>
+                      {{menu?.name}}
+                    </button>
+                  </div>
 
-                <div ngbAccordionCollapse id="collapse-{{menu?.name}}">
-                  <div ngbAccordionBody class="accordion-body">
-                    <ng-template>
+                  <div ngbAccordionCollapse id="collapse-{{menu?.name}}">
+                    <div ngbAccordionBody class="accordion-body">
+                      <ng-template>
 
-                      <div *ngFor="let s of menu?.subMenu">
-                        <div *ngIf="s?.type==='dropdown'">
-                          <ul>
-                            <li class="list-unstyled">
-                              <div ngbAccordion>
-                                <div ngbAccordionItem>
-                                  <div ngbAccordionHeader>
-                                    <button ngbAccordionButton class="dropdown-header">{{s.name}}</button>
-                                  </div>
-                                  <div ngbAccordionCollapse>
-                                    <div ngbAccordionBody>
-                                      <ul>
-                                        <li *ngFor="let ss of s.subMenu" class="list-unstyled">
-                                          <a class="list-group-item overflow-hidden" [href]="ss?.route">{{ss.name}}</a>
-                                        </li>
-                                      </ul>
+                        <div *ngFor="let s of menu?.subMenu">
+                          <ng-container *ngIf="s?.type==='dropdown'">
+                            <ul>
+                              <li class="list-unstyled">
+                                <div ngbAccordion>
+                                  <div ngbAccordionItem>
+                                    <div ngbAccordionHeader>
+                                      <button ngbAccordionButton class="dropdown-header">{{s?.name}}</button>
+                                    </div>
+                                    <div ngbAccordionCollapse>
+                                      <ng-container>
+                                        <ul>
+                                          <li *ngFor="let ss of s?.subMenu" class="list-unstyled">
+                                            <a class="list-group-item overflow-hidden"
+                                               [href]="ss?.route">{{ss?.name}}</a>
+                                          </li>
+                                        </ul>
+                                      </ng-container>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            </li>
-                          </ul>
+                              </li>
+                            </ul>
+                          </ng-container>
                         </div>
-                      </div>
-                    </ng-template>
+                      </ng-template>
 
+                    </div>
                   </div>
                 </div>
+
+
               </div>
 
-
             </div>
-
-          </div>
+          </ng-container>
         </li>
       </ul>
     </div>
