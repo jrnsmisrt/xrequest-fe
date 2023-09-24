@@ -15,23 +15,27 @@
 
             <div *ngIf="menu.type==='dropdown'" class="dropdown-menu" aria-labelledby="navbarDropdown"
                  ngbDropdownMenu>
-              <div *ngFor="let s of menu?.subMenu">
+              <div *ngFor="let s of menu?.subMenu; let i = index">
                 <ng-container *ngIf="s?.type==='dropdown'">
                   <ul>
                     <li class="list-unstyled">
-                      <div ngbAccordion>
-                        <div ngbAccordionItem>
+                      <div ngbAccordion [closeOthers]="true">
+                        <div ngbAccordionItem  [collapsed]="((toggled?.id!=i)&&(!!toggled?.status))">
                           <div ngbAccordionHeader>
-                            <button ngbAccordionButton class="dropdown-header">{{s?.name}}</button>
+                            <button ngbAccordionButton class="dropdown-header btn-dark"
+                            (click)="toggleAccordion(i, false)">{{s?.name}}</button>
                           </div>
                           <div ngbAccordionCollapse>
                             <ng-container>
-                              <ul>
-                                <li *ngFor="let ss of s?.subMenu" class="list-unstyled">
-                                  <a class="list-group-item overflow-hidden"
-                                     [href]="ss?.route">{{ss?.name}}</a>
-                                </li>
-                              </ul>
+
+                                <ul>
+                                  <li *ngFor="let ss of s?.subMenu" class="list-unstyled">
+                                    <div [id]="i" ngbAccordionBody>
+                                      <a class="list-group-item overflow-hidden"
+                                         [href]="ss?.route">{{ss?.name}}</a>
+                                    </div>
+                                  </li>
+                                </ul>
                             </ng-container>
                           </div>
                         </div>

@@ -9,4 +9,9 @@ import {MenuItem} from "../../interface/menu-item";
 export class NavbarComponent {
 
     @Input() menuItems: MenuItem[] = [];
+    toggled: {id: number, status: boolean}= {id:0, status: true};
+
+  toggleAccordion(i: number, toggle: boolean) {
+    this.toggled = {id: i, status: !toggle}
+  }
 }

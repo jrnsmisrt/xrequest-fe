@@ -44,7 +44,17 @@ export const menuItemList: MenuItem[] = [
           },
           {
             name: 'Man zoekt man',
-            route: '#',
+            route: categoryRoutes.MALE4MALE,
+            type: 'dropdown-item',
+          },
+          {
+            name: 'Man zoekt koppel',
+            route: categoryRoutes.MALE4COUPLE,
+            type: 'dropdown-item',
+          },
+          {
+            name: 'Man zoekt x',
+            route: categoryRoutes.MALE4X,
             type: 'dropdown-item',
           }
         ]
@@ -71,6 +81,32 @@ export const menuItemList: MenuItem[] = [
           {
             name: 'Koppel zoekt x',
             route: categoryRoutes.COUPLE4X,
+            type: 'dropdown-item',
+          }
+        ]
+      },
+      {
+        name: 'X zoekt ...',
+        type: 'dropdown',
+        subMenu: [
+          {
+            name: 'X zoekt vrouw',
+            route: categoryRoutes.X4FEMALE,
+            type: 'dropdown-item',
+          },
+          {
+            name: 'X zoekt man',
+            route: categoryRoutes.X4MALE,
+            type: 'dropdown-item',
+          },
+          {
+            name: 'X zoekt koppel',
+            route: categoryRoutes.X4COUPLE,
+            type: 'dropdown-item',
+          },
+          {
+            name: 'X zoekt x',
+            route: categoryRoutes.X4X,
             type: 'dropdown-item',
           }
         ]
