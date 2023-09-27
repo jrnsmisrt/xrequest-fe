@@ -9,34 +9,38 @@
             {{menu?.name}}</a>
 
           <ng-container *ngIf="menu?.type==='dropdown'">
-            <div class="list-group-item overflow-hidden">
-              <div ngbAccordion class="accordion" id="{{menu?.name}}-acc">
-                <div ngbAccordionItem class="accordion-item">
-                  <div ngbAccordionHeader class="accordion-header">
-                    <button ngbAccordionButton>
+            <div class="overflow-hidden">
+              <div ngbAccordion id="{{menu?.name}}-acc">
+                <div ngbAccordionItem>
+                  <div ngbAccordionHeader>
+                    <button ngbAccordionButton class="dropdown-header btn-dark">
                       {{menu?.name}}
                     </button>
                   </div>
 
                   <div ngbAccordionCollapse id="collapse-{{menu?.name}}">
-                    <div ngbAccordionBody class="accordion-body">
+                    <div ngbAccordionBody>
                       <ng-template>
 
-                        <div *ngFor="let s of menu?.subMenu">
+                        <div *ngFor="let s of menu?.subMenu; let i = index">
                           <ng-container *ngIf="s?.type==='dropdown'">
                             <ul>
                               <li class="list-unstyled">
-                                <div ngbAccordion>
-                                  <div ngbAccordionItem>
+                                <div ngbAccordion [closeOthers]="true">
+                                  <div ngbAccordionItem [collapsed]="((toggled.id!=i)&&(!!toggled?.status))">
                                     <div ngbAccordionHeader>
-                                      <button ngbAccordionButton class="dropdown-header">{{s?.name}}</button>
+                                      <button ngbAccordionButton
+                                              (click)="toggleAccordion(i, false)">
+                                        {{s?.name}}</button>
                                     </div>
                                     <div ngbAccordionCollapse>
                                       <ng-container>
                                         <ul>
                                           <li *ngFor="let ss of s?.subMenu" class="list-unstyled">
-                                            <a class="list-group-item overflow-hidden"
-                                               [href]="ss?.route">{{ss?.name}}</a>
+                                            <div [id]="i" ngbAccordionBody>
+                                              <a class="list-group-item overflow-hidden"
+                                                 [href]="ss?.route">{{ss?.name}}</a>
+                                            </div>
                                           </li>
                                         </ul>
                                       </ng-container>
