@@ -39,8 +39,8 @@ body {
   /*background: linear-gradient(90deg, rgba(20,16,16,1) 0%, rgba(248,248,255,1) 10%, rgba(248,248,255,1) 90%, rgba(20,16,16,1) 100%);*/
   /*background: rgb(20,16,16);*/
   /*background: linear-gradient(0deg, rgba(20,16,16,1) 0%, rgba(248,248,255,1) 100%);*/
-  background: rgb(20, 16, 16);
-  background: linear-gradient(0deg, rgba(20, 16, 16, 0.19931722689075626) 0%, rgba(248, 248, 255, 0.6839110644257703) 25%, rgba(248, 248, 255, 1) 97%, rgba(195, 25, 93, 0.33657212885154064) 100%);
+  /* background: rgb(20, 16, 16);
+   background: linear-gradient(0deg, rgba(20, 16, 16, 0.19931722689075626) 0%, rgba(248, 248, 255, 0.6839110644257703) 25%, rgba(248, 248, 255, 1) 97%, rgba(195, 25, 93, 0.33657212885154064) 100%);*/
 }
 
 .dropdown-menu {

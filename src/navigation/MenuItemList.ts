@@ -3,6 +3,7 @@ import {categoryRoutes} from "../routing/routes";
 
 export const menuItemList: MenuItem[] = [
   {name: 'Home', route: ''},
+  {name: 'Create', route: '/create'},
   {
     name: 'Categoriëen',
     type: 'dropdown',

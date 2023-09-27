@@ -1,11 +1,12 @@
 import {Routes} from "@angular/router";
-import {AppComponent} from "../app/app.component";
 import {HomeComponent} from "../app/home/home.component";
+import {CreateComponent} from "../app/create/create.component";
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: '**', component: HomeComponent},
-  {path: 'x', component: HomeComponent}
+  {path: 'x', component: HomeComponent},
+  {path: 'create', component: CreateComponent},
+  {path: '**', component: HomeComponent}
 ]
 
 export enum categoryRoutes {

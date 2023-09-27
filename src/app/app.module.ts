@@ -13,12 +13,14 @@ import {WebComponentsModule} from "../webcomponents/web-components.module";
 import {RouterModule} from "@angular/router";
 import {routes} from "../routing/routes";
 import {HomeComponent} from './home/home.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavmobilemenuComponent,
-    HomeComponent
+    HomeComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

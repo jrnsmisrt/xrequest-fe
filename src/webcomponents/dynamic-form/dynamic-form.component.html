@@ -1,0 +1,20 @@
+<form class="row g-3 mt-5">
+  <div *ngFor="let f of formFields" class="col-md-6">
+    <label [for]="f?.label"
+           class="form-label"
+           [innerText]="f?.label">
+    </label>
+    <input  *ngIf="f?.element==='input'"
+            [type]="f?.type"
+            class="form-control"
+            [id]="f?.label">
+    <textarea  *ngIf="f?.element==='textarea'"
+               class="form-control"
+               [id]="f?.label">
+    </textarea>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-sm btn-light btn-outline-dark">Create</button>
+  </div>
+</form>
