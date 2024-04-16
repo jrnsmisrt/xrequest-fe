@@ -14,6 +14,7 @@ import {RouterModule} from "@angular/router";
 import {routes} from "../routing/routes";
 import {HomeComponent} from './home/home.component';
 import { CreateComponent } from './create/create.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,19 +23,21 @@ import { CreateComponent } from './create/create.component';
     HomeComponent,
     CreateComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(
-      routes,
-    ),
-    HttpClientModule,
-    NgbModule,
-    MatSidenavModule,
-    BrowserAnimationsModule,
-    XrequestModule,
-    NavigationModule,
-    WebComponentsModule,
-  ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(
+            routes,
+        ),
+        HttpClientModule,
+        NgbModule,
+        MatSidenavModule,
+        BrowserAnimationsModule,
+        XrequestModule,
+        NavigationModule,
+        WebComponentsModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
 })

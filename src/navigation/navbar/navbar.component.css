@@ -1,5 +1,6 @@
 .navbar {
   background-color: var(--fourth-color);
+  /*border-bottom: 1vh var(--first-color) solid;*/
   border-bottom: 1vh var(--first-color) solid;
 }
 

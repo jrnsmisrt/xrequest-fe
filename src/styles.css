@@ -2,7 +2,7 @@
 @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 :root {
-  --first-color: #f70776;
+  --first-color: #95c3f6;
 
   --second-color: #c3195d;
 
@@ -12,8 +12,6 @@
   --fourth-color: #141010;
 
   --transparant: rgba(0, 0, 0, 0.0);
-
-
 }
 
 .container {
