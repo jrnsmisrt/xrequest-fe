@@ -20,7 +20,7 @@
                   <ul>
                     <li class="list-unstyled">
                       <div ngbAccordion [closeOthers]="true">
-                        <div ngbAccordionItem  [collapsed]="((toggled.id!=i)&&(!!toggled?.status))">
+                        <div ngbAccordionItem  [collapsed]="((toggled.id!=i) && toggled.status)">
                           <div ngbAccordionHeader>
                             <button ngbAccordionButton class="dropdown-header btn-dark"
                             (click)="toggleAccordion(i, false)">{{s?.name}}</button>
