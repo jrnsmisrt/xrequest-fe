@@ -1,5 +1,5 @@
 <form class="row g-3 mt-5">
-  <div *ngFor="let f of formFields" class="col-md-6">
+  <div *ngFor="let f of formFields" class="col-12 col-md-6">
     <label [for]="f?.label"
            class="form-label"
            [innerText]="f?.label">
@@ -15,6 +15,6 @@
   </div>
 
   <div class="col-12">
-    <button type="submit" class="btn btn-sm btn-light btn-outline-dark">Create</button>
+    <button type="submit" class="btn btn-sm btn-dark btn-outline-light">Create</button>
   </div>
 </form>

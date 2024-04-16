@@ -23,7 +23,7 @@ export class DynamicFormComponent {
       type: 'email'
     },
     {
-      label: 'Request',
+      label: 'request',
       element: 'textarea',
       type: 'text'
     }
