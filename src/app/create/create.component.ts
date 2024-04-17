@@ -14,8 +14,8 @@ export class CreateComponent implements OnInit {
   createForm: FormGroup = this.formBuilder.group({
     name: new FormControl('', [Validators.required, Validators.minLength(this.minNameChars)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phonenumber: new FormControl('', Validators.maxLength(this.maxPhoneChars)),
-    content: new FormControl('', [Validators.required, Validators.maxLength(this.maxContentChars)]),
+    phoneNumber: new FormControl('', Validators.maxLength(this.maxPhoneChars)),
+    content: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(this.maxContentChars)]),
   });
 
   constructor(private formBuilder: FormBuilder) {
@@ -42,8 +42,8 @@ export class CreateComponent implements OnInit {
    return this.createForm.get('email');
   }
 
-  get phonenumber(){
-    return this.createForm.get('phonenumber');
+  get phoneNumber(){
+    return this.createForm.get('phoneNumber');
   }
 
   get content(){

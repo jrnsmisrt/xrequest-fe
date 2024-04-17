@@ -3,51 +3,69 @@
     <div class="col">
       <form [formGroup]="createForm" (ngSubmit)="createRequest()" class="row g-3 mt-5">
         <div class="col-md-6">
-          <label for="input-name"
-                 class="form-label">
-            nickname / full name
-          </label>
-          <input [formControlName]="'name'" type="text"
-                 class="form-control"
-                 id="input-name">
-          <div
-            *ngIf="name?.invalid && (name?.dirty || name?.touched)"
-            class="alert">
-            <div *ngIf="name?.errors?.['required']">Name is required.</div>
-            <div *ngIf="name?.errors?.['minlength']">
-              Name must be at least 2 characters long.
+
+          <div class="mb-2">
+            <label for="input-name" class="form-label">
+              nickname / full name
+            </label>
+            <input [formControlName]="'name'" type="text"
+                   class="form-control"
+                   id="input-name">
+            <div
+              *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+              class="alert alert-warning m-0 p-0">
+              <p *ngIf="name?.errors?.['required']" class="small m-0 p-0">Name is required.</p>
+              <p *ngIf="name?.errors?.['minlength']" class="small m-0 p-0">
+                Name must be at least 2 characters long.
+              </p>
             </div>
           </div>
-          <label for="input-email"
-                 class="form-label">
-            email
-          </label>
-          <input type="email"
-                 [formControlName]="'email'"
-                 class="form-control"
-                 id="input-email">
-          <div
-            *ngIf="email?.invalid && (email?.dirty || email?.touched)"
-            class="alert">
-            <div *ngIf="email?.errors?.['required']">Email is required.</div>
-            <div *ngIf="email?.errors?.['email']">
-              Email must be of correct format < name @ host . tld >
+
+          <div class="mb-2">
+            <label for="input-email" class="form-label">
+              email
+            </label>
+            <input type="email"
+                   [formControlName]="'email'"
+                   class="form-control"
+                   id="input-email">
+            <div
+              *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+              class="alert alert-warning  m-0 p-0">
+              <p *ngIf="email?.errors?.['required']" class="small m-0 p-0">Email is required.</p>
+              <p *ngIf="email?.errors?.['email']" class="small m-0 p-0">
+                Email must be of correct format < name @ host . tld >
+              </p>
             </div>
           </div>
-          <label for="input-phone"
-                 class="form-label">
-            phonenumber
-          </label>
-          <input type="tel"
-                 [formControlName]="'phonenumber'"
-                 class="form-control"
-                 id="input-phone">
-          <label for="request-content">
-            your request
-          </label>
-          <textarea class="form-control"
-                    [formControlName]="'content'"
-                    id="request-content" rows="10" cols="250"></textarea>
+
+          <div class="mb-2">
+            <label for="input-phone"
+                   class="form-label">
+              phonenumber
+            </label>
+            <input type="tel"
+                   [formControlName]="'phoneNumber'"
+                   class="form-control"
+                   id="input-phone">
+          </div>
+
+          <div class="mb-2">
+            <label for="request-content">
+              your request
+            </label>
+            <textarea class="form-control"
+                      [formControlName]="'content'"
+                      id="request-content" rows="10" cols="250"></textarea>
+            <div
+              *ngIf="content?.invalid && (content?.dirty || content?.touched)"
+              class="alert alert-warning m-0 p-0">
+              <p *ngIf="content?.errors?.['required']" class="small m-0 p-0">Content is required.</p>
+              <p *ngIf="content?.errors?.['minlength']" class="small m-0 p-0">
+                Content must at least contain 10 characters.
+              </p>
+            </div>
+          </div>
 
         </div>
         <div class="col-12 align-content-center">
