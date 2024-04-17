@@ -30,7 +30,6 @@ export class CreateComponent implements OnInit {
     this.createForm.markAllAsTouched();
     if (this.createForm.valid) {
       console.log('form is valid');
-
     }
   }
 

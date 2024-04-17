@@ -65,11 +65,16 @@
                 Content must at least contain 10 characters.
               </p>
             </div>
+
+            <app-fileuploader [accept]="'image/*'" [multiple]="true" [uLimit]="2"></app-fileuploader>
+
           </div>
 
         </div>
         <div class="col-12 align-content-center">
-          <button type="submit" class="btn btn-sm btn-dark btn-outline-light m-auto">Create</button>
+          <button type="submit" class="btn btn-lg btn-dark btn-outline-light m-auto">
+            <mat-icon class="m-auto">send</mat-icon>
+          </button>
         </div>
       </form>
     </div>

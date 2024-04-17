@@ -15,6 +15,7 @@ import {routes} from "../routing/routes";
 import {HomeComponent} from './home/home.component';
 import { CreateComponent } from './create/create.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         WebComponentsModule,
         FormsModule,
         ReactiveFormsModule,
+        MatIconModule,
     ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

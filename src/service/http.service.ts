@@ -26,5 +26,9 @@ export class HttpService {
     getAuthorById(id: string): Observable<Author> {
         return this.http.get<Author>(`${this.backendUrl}/xrequests/authors/${id}`);
     }
+
+    postRequest(xrequest: XRequest): Observable<XRequest> {
+      return this.http.post<XRequest>(`${this.backendUrl}/xrequests/${xrequest.id}`,xrequest)
+    }
 }
 
