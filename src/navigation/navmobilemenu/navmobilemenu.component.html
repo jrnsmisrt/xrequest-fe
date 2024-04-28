@@ -1,15 +1,15 @@
 <div *ngIf="navStatus" [ngClass]="mobileNavCol">
   <div class="col-nav-open-inner">
     <div class="mx-auto">
-      <ul class="list-unstyled">
-        <li *ngFor="let menu of menuItemList" class="list-group">
+      <ul class="list-unstyled p-0 m-0">
+        <li *ngFor="let menu of menuItemList" class="list-group p-0 m-0">
           <a *ngIf="menu?.type!='dropdown'"
              class="list-group-item nav-item nav-link overflow-hidden"
              [href]="menu?.route">
             {{menu?.name}}</a>
 
           <ng-container *ngIf="menu?.type==='dropdown'">
-            <div class="overflow-hidden">
+            <div class="overflow-hidden p-0 m-0">
               <div ngbAccordion id="{{menu?.name}}-acc">
                 <div ngbAccordionItem>
                   <div ngbAccordionHeader>
@@ -18,14 +18,14 @@
                     </button>
                   </div>
 
-                  <div ngbAccordionCollapse id="collapse-{{menu?.name}}">
-                    <div ngbAccordionBody>
+                  <div ngbAccordionCollapse id="collapse-{{menu?.name}}" class="p-0 m-0">
+                    <div ngbAccordionBody class="ps-2 pe-1 pt-2 pb-2 m-0">
                       <ng-template>
 
-                        <div *ngFor="let s of menu?.subMenu; let i = index">
+                        <div *ngFor="let s of menu?.subMenu; let i = index" class="m-0 p-0">
                           <ng-container *ngIf="s?.type==='dropdown'">
-                            <ul>
-                              <li class="list-unstyled">
+                            <ul class="p-0 m-0">
+                              <li class="list-unstyled p-0 m-0">
                                 <div ngbAccordion [closeOthers]="true">
                                   <div ngbAccordionItem [collapsed]="((toggled.id!=i) && toggled.status)">
                                     <div ngbAccordionHeader>
@@ -35,9 +35,9 @@
                                     </div>
                                     <div ngbAccordionCollapse>
                                       <ng-container>
-                                        <ul>
-                                          <li *ngFor="let ss of s?.subMenu" class="list-unstyled">
-                                            <div [id]="i" ngbAccordionBody>
+                                        <ul class="p-0 m-0">
+                                          <li *ngFor="let ss of s?.subMenu" class="list-unstyled p-0 m-0">
+                                            <div [id]="i" ngbAccordionBody class="p-0 m-0">
                                               <a class="list-group-item overflow-hidden"
                                                  [href]="ss?.route">{{ss?.name}}</a>
                                             </div>
